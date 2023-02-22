@@ -18,6 +18,10 @@ class Pawn {
     canKill(){
 
     }
+    
+    updateProgress(){
+    
+    }
 }
 
 
