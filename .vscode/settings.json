@@ -1,0 +1,17 @@
+{
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontalScrollbarSize": 5,
+    "editor.smoothScrolling": true,
+    "editor.fontFamily": "JetBrains mono", //JetBrains Mono
+    "editor.fontVariations": true,
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.minimap.autohide": true,
+    "editor.fontWeight": "normal",
+    "editor.inlayHints.fontSize": 15,
+    "editor.fontSize": 13,
+    "editor.letterSpacing": 0,
+    "editor.lineHeight": 28
+}
+//"editor.fontFamily": "Cascadia Code",
