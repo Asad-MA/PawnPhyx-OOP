@@ -1,22 +1,47 @@
 class Pawn {
-    constructor ( color  ) {
+    constructor(color, id) {
         this.color = color;
         this.player = color;
-        this.state = 'INACTIVE';
+        this.id = id;
+        this.state = 'ACTIVE';
+        this.lockStates = ['INACTIVE', 'WIN'];
         this.steps = -1;
         this.position = {
             x: 0,
             y: 0
         }
+        //this.ele = '';
+        this.#createPawn();
+    }
+
+    canMove() {
+        if (!this.lockStates.includes(this.state)) {
+            console.log(`${this.id} is free`)
+            return true;
+        }
+        return false;
+    }
+
+    canKill() {
 
     }
 
-    canMove(){
+    isSafe() {
 
     }
 
-    canKill(){
+    updatePawn() {
 
+    }
+
+    #createPawn() {
+        let ele = document.createElement('span');
+        ele.className = 'pawn';
+        ele.innerText = ` ${this.color} pawn `;
+        ele.prop = this;
+        ele.style.background = `${this.color}`
+        document.querySelector('body').appendChild(ele);
+        //this.ele = ele;
     }
 }
 

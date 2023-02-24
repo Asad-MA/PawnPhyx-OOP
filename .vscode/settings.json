@@ -12,6 +12,7 @@
     "editor.inlayHints.fontSize": 15,
     "editor.fontSize": 13,
     "editor.letterSpacing": 0,
-    "editor.lineHeight": 28
+    "editor.lineHeight": 28,
+    "liveServer.settings.port": 5501
 }
 //"editor.fontFamily": "Cascadia Code",
