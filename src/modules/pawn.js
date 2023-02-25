@@ -43,6 +43,10 @@ class Pawn {
         document.querySelector('body').appendChild(ele);
         //this.ele = ele;
     }
+    
+    updateProgress(){
+    
+    }
 }
 
 
