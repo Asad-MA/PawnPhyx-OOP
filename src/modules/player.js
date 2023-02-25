@@ -4,12 +4,13 @@ class Player {
     constructor(player, id) {
         this.player = player;
         this.id = id;
+        this.username = ''
+        this.avatar = '';
         this.pawns = [];
         this.moves = [];
         this.state = 'inactive';
         this.current = false;
         this.#initPawns();
-        this.#eventHandler();
 
     }
 
@@ -23,16 +24,13 @@ class Player {
         }
 
         this.pawns.forEach((pawn) => {
-            console.log(pawn)
-            pawn.onclick = (e) => {
-                console.log(`${pawn}`)
+            pawn.ele.onclick = (e) => {
+                console.log(pawn)
+                pawn.updatePawn();
             }
         })
     }
 
-    #eventHandler() {
-
-    }
 }
 
 export default Player;

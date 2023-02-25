@@ -31,17 +31,17 @@ class Pawn {
     }
 
     updatePawn() {
-
+        this.steps = this.steps + 1;
     }
 
     #createPawn() {
         let ele = document.createElement('span');
         ele.className = 'pawn';
         ele.innerText = ` ${this.color} pawn `;
-        ele.prop = this;
+        //ele.prop = this;
         ele.style.background = `${this.color}`
         document.querySelector('body').appendChild(ele);
-        //this.ele = ele;
+        this.ele = ele;
     }
 }
 
