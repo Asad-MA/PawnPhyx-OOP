@@ -15,20 +15,16 @@ class Player {
     }
 
     hasFreePawns() {
-        this.pawns.forEach((pawn) => { })
+        this.pawns.forEach((pawn) => {
+            if (pawn.state == 'ACTIVE') return true;
+            return false;
+        })
     }
 
     #initPawns() {
         for (let i = 0; i < 4; i++) {
             this.pawns.push(new Pawn(this.player, `${this.player}_${i + 1}`));
         }
-
-        this.pawns.forEach((pawn) => {
-            pawn.ele.onclick = (e) => {
-                console.log(pawn)
-                pawn.updatePawn();
-            }
-        })
     }
 
 }

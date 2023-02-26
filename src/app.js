@@ -9,7 +9,7 @@ import Player from "./modules/player.js";
 
 
 
-let players, format, colors;
+let players, format, colors, dice, pawns;
 
 function init() {
 
@@ -21,20 +21,22 @@ function init() {
             case 4:
                 players = [];
                 colors = ['red', 'blue', 'yellow', 'green']
-                placements = {}
+                //placements = {}
                 console.log('4 player format Selected');
                 colors.forEach((color) => {
                     players.push(new Player(color, `player_${colors.indexOf(color) + 1}`))
                 })
-
+                dice = new Dice(players)
                 break;
             case 6:
                 console.log('6 player format Selected')
                 players = [];
                 colors = ['red', 'blue', 'yellow', 'green', 'purple', 'orange']
+
                 colors.forEach((color) => {
                     players.push(new Player(color, `player_${colors.indexOf(color) + 1}`))
                 })
+                dice = new Dice(players)
                 break;
             default:
                 console.log('Enter Number less than or equal to 6')
@@ -50,5 +52,25 @@ function init() {
 }
 
 init();
+console.log(dice)
+
+function pawnHandler() {
+    console.log(this)
+}
+
+dice.ele.onclick = () => {
+    dice.roll();
+    if (!players[dice.currentPlayer].hasFreePawns()) {
+        dice.nextPlayerMove();
+        console.log('Next Player:', players[dice.currentPlayer])
+
+    }
+}
+
+players.forEach((player) => {
+    player.pawns.forEach((pawn) => {
+        pawn.ele.onclick = () => pawnHandler.call(pawn);
+    })
+})
 
 

@@ -3,7 +3,7 @@ class Pawn {
         this.color = color;
         this.player = color;
         this.id = id;
-        this.state = 'ACTIVE';
+        this.state = 'INACTIVE';
         this.lockStates = ['INACTIVE', 'WIN'];
         this.steps = -1;
         this.position = {
@@ -34,18 +34,21 @@ class Pawn {
         this.steps = this.steps + 1;
     }
 
+    // click() {
+    //     console.log(this)
+    // }
+
     #createPawn() {
         let ele = document.createElement('span');
         ele.className = 'pawn';
         ele.innerText = ` ${this.color} pawn `;
-        //ele.prop = this;
         ele.style.background = `${this.color}`
         document.querySelector('body').appendChild(ele);
         this.ele = ele;
     }
-    
-    updateProgress(){
-    
+
+    updateProgress() {
+
     }
 }
 
