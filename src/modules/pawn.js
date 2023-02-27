@@ -34,10 +34,6 @@ class Pawn {
         this.steps = this.steps + 1;
     }
 
-    // click() {
-    //     console.log(this)
-    // }
-
     #createPawn() {
         let ele = document.createElement('span');
         ele.className = 'pawn';
