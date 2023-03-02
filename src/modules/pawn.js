@@ -1,3 +1,5 @@
+import Dice from "./dice.js";
+
 class Pawn {
     constructor(color, id) {
         this.color = color;
@@ -10,11 +12,11 @@ class Pawn {
             x: 0,
             y: 0
         }
-        //this.ele = '';
         this.#createPawn();
     }
 
     canMove() {
+        if (Dice.moves.includes(6) && this.state == 'INACTIVE') return true;
         if (!this.lockStates.includes(this.state)) {
             console.log(`${this.id} is free`)
             return true;
@@ -30,8 +32,9 @@ class Pawn {
 
     }
 
-    updatePawn() {
+    setProgress() {
         this.steps = this.steps + 1;
+        console.log(`Pawn Steps: ${this.steps}`)
     }
 
     #createPawn() {

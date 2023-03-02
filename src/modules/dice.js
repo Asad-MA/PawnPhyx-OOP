@@ -2,28 +2,30 @@ class Dice {
     constructor(colors) {
         this.players = colors;
         this.currentPlayer = 0;
-        this.moves = [];
+        //this.moves = [];
         this.rolled = false;
         this.#createDice()
+
     }
+    static moves = [];
 
     roll() {
-        if (this.rolled) return;
+        if (this.rolled) {
+            console.log('Already Rolled'); return;
+        }
         let num = Math.floor(Math.random() * (7 - 1) + 1);
-        if (num == 6) this.moves.push(num);
+        if (num == 6 || Dice.moves[Dice.moves.length] == 6) Dice.moves.push(num);
         else this.rolled = true;
-        console.log(num)
+        console.log(this, num)
     }
 
     nextPlayerMove() {
-        if (this.currentPlayer + 1 == this.players.length) {
-            this.currentPlayer = 0;
-            console.log(this.players[this.currentPlayer].state)
-            this.rolled = false;
-            return;
-        }
-        this.currentPlayer = this.currentPlayer + 1;
+        this.currentPlayer + 1 == this.players.length
+            ? this.currentPlayer = 0
+            : this.currentPlayer = this.currentPlayer + 1;
+
         console.log(this.players[this.currentPlayer].state)
+        this.rolled = false;
         // if (this.players[this.currentPlayer].state == 'inactive') nextPlayerMove();
     }
 
