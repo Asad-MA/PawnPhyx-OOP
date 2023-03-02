@@ -60,6 +60,7 @@ function pawnHandler() {
 
 dice.ele.onclick = () => {
     dice.roll();
+    //console.log(players[dice.currentPlayer].hasFreePawns())
     if (!players[dice.currentPlayer].hasFreePawns()) {
         dice.nextPlayerMove();
         console.log('Next Player:', players[dice.currentPlayer])
@@ -69,7 +70,11 @@ dice.ele.onclick = () => {
 
 players.forEach((player) => {
     player.pawns.forEach((pawn) => {
-        pawn.ele.onclick = () => pawnHandler.call(pawn);
+        pawn.ele.onclick = () => {
+            if (player.current && pawn.canMove()) {
+                pawn.setProgress();
+            }
+        }
     })
 })
 

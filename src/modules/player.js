@@ -1,5 +1,5 @@
 import Pawn from "./pawn.js";
-
+import Dice from "./dice.js"
 class Player {
     constructor(player, id) {
         this.player = player;
@@ -15,10 +15,13 @@ class Player {
     }
 
     hasFreePawns() {
-        this.pawns.forEach((pawn) => {
+
+        console.log(Dice.moves)
+        for (const pawn of this.pawns) {
             if (pawn.state == 'ACTIVE') return true;
+            if (Dice.moves.includes(6) && pawn.state == 'INACTIVE') return true;
             return false;
-        })
+        }
     }
 
     #initPawns() {
