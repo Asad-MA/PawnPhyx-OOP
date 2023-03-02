@@ -4,4 +4,7 @@
     display: inline-block;
     color: #fff;
     text-shadow: 0px 0px 4px black;
+    text-transform: capitalize;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
 }
