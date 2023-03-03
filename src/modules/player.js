@@ -3,7 +3,8 @@ import Dice from "./dice.js"
 class Player {
     constructor(player, id) {
         this.player = player;
-        this.id = id;
+        this.id = `player_${id}`;
+        this.index = id;
         this.username = ''
         this.avatar = '';
         this.pawns = [];
@@ -26,7 +27,7 @@ class Player {
 
     #initPawns() {
         for (let i = 0; i < 4; i++) {
-            this.pawns.push(new Pawn(this.player, `${this.player}_${i + 1}`));
+            this.pawns.push(new Pawn(this.player, this.index));
         }
     }
 
