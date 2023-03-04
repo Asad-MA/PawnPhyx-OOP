@@ -1,3 +1,5 @@
+import Board from "./board.js";
+
 class Dice {
     constructor(colors) {
         this.players = colors;
@@ -14,17 +16,18 @@ class Dice {
             console.log('Already Rolled'); return;
         }
         let num = Math.floor(Math.random() * (7 - 1) + 1);
-        if (num == 6 || Dice.moves[Dice.moves.length] == 6) Dice.moves.push(num);
+        if (num == 6 || Dice.moves[Dice.moves.length - 1] == 6) Dice.moves.push(num);
         else this.rolled = true;
         console.log(this, num)
     }
 
     nextPlayerMove() {
+        this.players[this.currentPlayer].current = false;
         this.currentPlayer + 1 == this.players.length
             ? this.currentPlayer = 0
             : this.currentPlayer = this.currentPlayer + 1;
-
-        console.log(this.players[this.currentPlayer].state)
+        this.players[this.currentPlayer].current = true;
+        //console.log(this.players[this.currentPlayer].state)
         this.rolled = false;
         // if (this.players[this.currentPlayer].state == 'inactive') nextPlayerMove();
     }

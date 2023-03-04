@@ -3,8 +3,8 @@ import Dice from "./dice.js";
 class Pawn {
     constructor(color, id) {
         this.color = color;
-        this.player = color;
-        this.id = id;
+        this.playerIndex = id;
+        this.id = `color_${id}`;
         this.state = 'INACTIVE';
         this.lockStates = ['INACTIVE', 'WIN'];
         this.steps = -1;
@@ -16,7 +16,10 @@ class Pawn {
     }
 
     canMove() {
-        if (Dice.moves.includes(6) && this.state == 'INACTIVE') return true;
+        if (Dice.moves.includes(6) && this.state == 'INACTIVE') {
+            //this.state = 'ACTIVE';
+            return true;
+        }
         if (!this.lockStates.includes(this.state)) {
             console.log(`${this.id} is free`)
             return true;
@@ -33,7 +36,9 @@ class Pawn {
     }
 
     setProgress() {
-        this.steps = this.steps + 1;
+        this.steps = this.steps + Dice.moves[0];
+        Dice.moves.shift();
+
         console.log(`Pawn Steps: ${this.steps}`)
     }
 
@@ -44,15 +49,18 @@ class Pawn {
         ele.style.background = `${this.color}`
         document.querySelector('body').appendChild(ele);
         this.ele = ele;
-        this.ele.onclick = () => Pawn.pawnHandler.call(this);
+
+        this.ele.onclick = () => Pawn.pawnHandler.apply(this)
     }
 
     updateProgress() {
 
     }
 
+
     static pawnHandler() {
         console.log(this.player)
+
     }
 }
 
