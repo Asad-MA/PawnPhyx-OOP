@@ -49,18 +49,18 @@ class Pawn {
         ele.style.background = `${this.color}`
         document.querySelector('body').appendChild(ele);
         this.ele = ele;
-        this.ele.onclick = () => Pawn.clickHandler.apply(this)
+
+        this.ele.onclick = () => Pawn.pawnHandler.apply(this)
     }
 
     updateProgress() {
 
     }
 
-    static clickHandler() {
-        console.log(this.id)
-        if (this.canMove()) {
 
-        }
+    static pawnHandler() {
+        console.log(this.player)
+
     }
 }
 
