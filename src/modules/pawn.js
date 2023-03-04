@@ -44,10 +44,15 @@ class Pawn {
         ele.style.background = `${this.color}`
         document.querySelector('body').appendChild(ele);
         this.ele = ele;
+        this.ele.onclick = () => Pawn.pawnHandler.call(this);
     }
 
     updateProgress() {
 
+    }
+
+    static pawnHandler() {
+        console.log(this.player)
     }
 }
 

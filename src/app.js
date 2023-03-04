@@ -68,14 +68,14 @@ dice.ele.onclick = () => {
     }
 }
 
-players.forEach((player) => {
-    player.pawns.forEach((pawn) => {
-        pawn.ele.onclick = () => {
-            if (player.current && pawn.canMove()) {
-                pawn.setProgress();
-            }
-        }
-    })
-})
+// players.forEach((player) => {
+//     player.pawns.forEach((pawn) => {
+//         pawn.ele.onclick = () => {
+//             if (player.current && pawn.canMove()) {
+//                 pawn.setProgress();
+//             }
+//         }
+//     })
+// })
 
 
