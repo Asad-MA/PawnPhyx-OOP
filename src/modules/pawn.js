@@ -1,3 +1,4 @@
+import Board from "./board.js";
 import Dice from "./dice.js";
 
 class Pawn {
@@ -12,7 +13,13 @@ class Pawn {
             x: 0,
             y: 0
         }
-        this.#createPawn();
+        this.defaultProps = {
+            position: {
+                x: 0,
+                y: 0,
+            }
+        }
+        //this.#createPawn();
     }
 
     canMove() {
@@ -42,14 +49,19 @@ class Pawn {
         console.log(`Pawn Steps: ${this.steps}`)
     }
 
-    #createPawn() {
+    createPawn(props) {
         let ele = document.createElement('span');
         ele.className = 'pawn';
-        ele.innerText = ` ${this.color} pawn `;
-        ele.style.background = `${this.color}`
-        document.querySelector('body').appendChild(ele);
+        ele.innerText = ` P `;
+        // console.log(this.playerIndex)
+        let index = this.playerIndex;
+        console.log(index)
+        console.log(Board.players[index].colorCode)
+        ele.style.background = Board.players[index].colorCode;
+        ele.style.cssText = `background-color: ${Board.players[index].colorCode}; left: ${props.x}px; top: ${props.y}px`;
+        document.querySelector('#game-board').appendChild(ele);
         this.ele = ele;
-
+        console.log(props)
         this.ele.onclick = () => Pawn.pawnHandler.apply(this)
     }
 
@@ -59,7 +71,7 @@ class Pawn {
 
 
     static pawnHandler() {
-        console.log(this.player)
+        console.log(this.id)
 
     }
 }
