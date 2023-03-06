@@ -8,6 +8,7 @@
     cursor: pointer;
     border-radius: 1px 20px 5px 5px;
     position: absolute;
+    user-select: none;
 }
 
 :root {

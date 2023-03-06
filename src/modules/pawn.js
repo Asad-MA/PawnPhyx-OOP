@@ -2,10 +2,10 @@ import Board from "./board.js";
 import Dice from "./dice.js";
 
 class Pawn {
-    constructor(color, id) {
-        this.color = color;
-        this.playerIndex = id;
-        this.id = `color_${id}`;
+    constructor(props) {
+        this.color = props.color;
+        this.playerIndex = props.id;
+        this.id = `${this.color}_${props.index}`;
         this.state = 'INACTIVE';
         this.lockStates = ['INACTIVE', 'WIN'];
         this.steps = -1;

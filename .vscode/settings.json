@@ -1,5 +1,5 @@
 {
-    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontal": "visible",
     "editor.scrollbar.horizontalScrollbarSize": 5,
     "editor.smoothScrolling": true,
     "editor.fontFamily": "JetBrains mono", //JetBrains Mono

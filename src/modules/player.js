@@ -30,7 +30,11 @@ class Player {
 
     #initPawns() {
         for (let i = 0; i < 4; i++) {
-            this.pawns.push(new Pawn(this.player, this.index));
+            this.pawns.push(new Pawn({
+                color: this.player,
+                id: this.index,
+                index: i
+            }));
         }
     }
 
