@@ -6,11 +6,23 @@ import Board from "./modules/board.js";
 let players, format, board, dice, pawns, gameBoard;
 
 function init() {
+
     //prompt('Choose No of player to play:');
     let acceptedPlayers = [2, 3, 4, 5, 6];
+
+    gameBoard = document.querySelector('#game-board');
+
+    if (window.innerWidth > window.innerHeight) {
+        gameBoard.style.width = '90vh'
+        gameBoard.style.height = '90vh'
+    }
+    if (window.innerWidth < window.innerHeight) {
+        gameBoard.style.width = '90vw'
+        gameBoard.style.height = '90vw'
+    }
+
     let stepRatio = document.querySelector('.block').clientWidth;
     let homeStops = document.querySelector('.start-block').clientWidth;
-    gameBoard = document.querySelector('#game-board');
     //format = parseInt(prompt('Choose No of player to play:'));
     //console.log(typeof format)
     // if (format && typeof (format) === 'number' && acceptedPlayers.includes(format)) { //Development purpose
