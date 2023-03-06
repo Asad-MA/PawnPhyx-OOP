@@ -1,9 +1,12 @@
 import Pawn from "./pawn.js";
-import Dice from "./dice.js"
+import Dice from "./dice.js";
+import Board from "./board.js";
+
 class Player {
     constructor(player, id) {
         this.player = player;
         this.id = `player_${id}`;
+        this.colorCode = Board.colorCodes[this.player]
         this.index = id;
         this.username = ''
         this.avatar = '';
