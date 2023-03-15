@@ -34,7 +34,7 @@ function init() {
         height: gameBoard.clientHeight - 20,
     });
     board.drawBoard();
-    board.addPlayers();
+    board.addPlayers(Player);
     window.onresize = () => syncsize();
     // }
     // else {

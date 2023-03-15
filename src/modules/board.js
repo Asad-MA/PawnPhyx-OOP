@@ -1,5 +1,3 @@
-import Player from "./player.js";
-
 class Board {
     constructor(props) {
         this.numOfPlayers = props.format;
@@ -62,7 +60,7 @@ class Board {
         }
     }
 
-    addPlayers() {
+    addPlayers(Player) {
         for (let i = 0; i < this.numOfPlayers; i++) {
             let x = 0;
             Board.players.push(new Player(this.#colors[i], i));
