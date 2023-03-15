@@ -1,5 +1,4 @@
 import Pawn from "./pawn.js";
-import Dice from "./dice.js";
 import Board from "./board.js";
 
 class Player {

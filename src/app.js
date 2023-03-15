@@ -1,4 +1,3 @@
-import Dice from "./modules/dice.js";
 import Player from "./modules/player.js";
 import Board from "./modules/board.js";
 
